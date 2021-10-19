@@ -15,10 +15,10 @@ interface IAccessTokenResponse {
 }
 
 interface IUserResponse {
-    avatar_url: string,
+    avatar_url: string | null,
     login: string,
     id: number,
-    name: string
+    name: string | null
 }
 class AuthenticateUserService {
     async execute(code: string){
