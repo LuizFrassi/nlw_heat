@@ -18,6 +18,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
     // [0] Bearer
     // [1] 468432168416546516asda6edf46acae6
     const [, token] = authToken.split(" ")
+    //console.log(token)
 
 
     try {
@@ -25,7 +26,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
 
         request.user_id = sub
 
-        return next
+        return next();
 
     } catch (err) {
         return response.status(401).json({ errorCode: "token.expired" })
